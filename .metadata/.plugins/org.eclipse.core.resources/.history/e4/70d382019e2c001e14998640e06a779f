@@ -1,0 +1,5 @@
+package com.pacomolina.entities;
+
+public class Coche {
+
+}

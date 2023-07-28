@@ -1,0 +1,108 @@
+package com.example.demo.service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.example.demo.entities.Usuario;
+import com.example.demo.feignClients.CocheFeignClient;
+import com.example.demo.feignClients.MotoFeignClient;
+import com.example.demo.models.Coche;
+import com.example.demo.models.Moto;
+import com.example.demo.repository.UsuarioRepository;
+
+@Service
+public class UsuarioService {
+	
+	@Autowired
+	private RestTemplate restTemplate;
+
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+
+	@Autowired
+	private CocheFeignClient cocheFeignClient;
+	
+	
+	@Autowired
+	private MotoFeignClient motoFeignClient;
+	
+	public List<Usuario> getAllUsario(){
+		return usuarioRepository.findAll();
+	}
+	
+	public Usuario getUsuarioById(long id) {
+		return usuarioRepository.findById(id).orElse(null);
+	}
+	
+	public Usuario guardar(Usuario usuario) {
+		Usuario usuarioNuevo = usuarioRepository.save(usuario);
+		return usuarioNuevo;
+	}
+	
+	
+	// Obtenemos los coches y las motos por usuarios(Comunicando los microservicios de coches y motos)
+	public List<Coche> getCoches(long usuarioId){
+		List<Coche> coches = restTemplate.getForObject("http://localhost:8082/coche/usuario/" + usuarioId, List.class);
+		return coches;
+	}
+	
+	public List<Moto> getMotos(long usuarioId){
+		List<Moto> motos = restTemplate.getForObject("http://localhost:8083/moto/usuario/" + usuarioId, List.class);
+		return motos;
+	}
+	
+	//Utilidamos FeignClient para unir los microservicios
+	public Coche guardarCoche(long usuarioId, Coche coche) {
+		coche.setUsuarioId(usuarioId);
+		Coche nuevoCoche = cocheFeignClient.guardar(coche);
+		
+		return nuevoCoche;
+	}
+	
+	
+	public Moto guardarMoto(long usuarioId, Moto moto) {
+		moto.setUsuarioId(usuarioId);
+		Moto nuevaMoto = motoFeignClient.guardarMotoFeignClient(moto);
+		
+		return nuevaMoto;
+	}
+	
+	//Obtenemos los usuarios y los vehículos
+	
+	public Map<String, Object> getUsuarioVehiculos(long usuarioId){
+		
+		Map<String, Object> resultado = new HashMap<>();
+		Usuario usuario = usuarioRepository.findById(usuarioId).orElse(null);
+		
+		
+		if (usuario == null) {
+			resultado.put("Mensaje", "Usuario no existe");
+			return resultado;
+		}
+		
+		resultado.put("Usuario", usuario);
+		
+		List<Coche> coches=cocheFeignClient.getCoches(usuarioId);
+		
+		if (coches.isEmpty()) {
+			resultado.put("Coches", "El usuario no tiene coches");
+
+		}else {
+			resultado.put("Coches", coches);
+
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+}

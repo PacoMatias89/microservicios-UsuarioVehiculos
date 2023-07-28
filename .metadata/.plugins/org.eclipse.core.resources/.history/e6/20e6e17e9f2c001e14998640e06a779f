@@ -1,0 +1,34 @@
+package com.pacomolina.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entities.Usuario;
+import com.pacomolina.entities.Coche;
+import com.pacomolina.repository.CocheRepository;
+
+@Service
+public class CocheService {
+
+	@Autowired
+	private final CocheRepository cocheRepository;
+	
+	public List<Coche> getAllUsario(){
+		return cocheRepository.findAll();
+	}
+	
+	public Coche getCocheById(long id) {
+		return cocheRepository.findById(id).orElse(null);
+	}
+	
+	public Coche guardar(Coche coche) {
+		Coche cocheNuevo = cocheRepository.save(coche);
+		return cocheNuevo;
+	}
+	
+	
+	
+	
+}

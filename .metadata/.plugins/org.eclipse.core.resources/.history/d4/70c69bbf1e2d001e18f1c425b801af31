@@ -1,0 +1,48 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.example.demo.entities.Usuario;
+import com.example.demo.models.Coche;
+import com.example.demo.models.Moto;
+import com.example.demo.repository.UsuarioRepository;
+
+@Service
+public class UsuarioService {
+	
+	@Autowired
+	private RestTemplate restTemplate;
+
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+	
+	// Obtenemos los coches y las motos por usuarios
+	public List<Coche> getCoches(long usuarioId){
+		List<Coche> coches = restTemplate.getForObject("http://localhost:8082/coche/usuario/" + usuarioId, List.class);
+		return coches;
+	}
+	
+	public List<Moto> getMotos(long usuarioId){
+		List<Moto> motos = restTemplate.getForObject("http://localhost:8083/coche/usuario/" + usuarioId, List.class);
+		return motos;
+	}
+	
+	public List<Usuario> getAllUsario(){
+		return usuarioRepository.findAll();
+	}
+	
+	public Usuario getUsuarioById(long id) {
+		return usuarioRepository.findById(id).orElse(null);
+	}
+	
+	public Usuario guardar(Usuario usuario) {
+		Usuario usuarioNuevo = usuarioRepository.save(usuario);
+		return usuarioNuevo;
+	}
+	
+	
+}

@@ -1,0 +1,33 @@
+package com.pacomolina.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.pacomolina.entities.Moto;
+import com.pacomolina.repositories.MotoRepository;
+
+@Service
+public class MotoService {
+	@Autowired
+	private MotoRepository motoRepository;
+
+	public List<Moto> getAllMoto() {
+		return motoRepository.findAll();
+	}
+
+	public Moto getMotoById(long id) {
+		return motoRepository.findById(id).orElse(null);
+	}
+
+	public Moto guardar(Moto moto) {
+		Moto cocheNuevo = motoRepository.save(moto);
+		return cocheNuevo;
+	}
+
+	public List<Moto> byUsuarioId(long idUsuario) {
+		return motoRepository.findByUsuarioId(idUsuario);
+	}
+
+}

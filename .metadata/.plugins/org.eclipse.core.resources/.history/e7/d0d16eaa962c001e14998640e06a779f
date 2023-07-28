@@ -1,0 +1,25 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entities.Usuario;
+import com.example.demo.repository.UsuarioRepository;
+
+@Service
+public class UsuarioService {
+
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+	
+	
+	private List<Usuario> getAllUsario(){
+		return usuarioRepository.findAll();
+	}
+	
+	private Usuario getUsuarioById(long id) {
+		return usuarioRepository.findById(id).orElse(null);
+	}
+}

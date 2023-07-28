@@ -1,0 +1,5 @@
+package com.pacomolina.repositories;
+
+public interface MotoRepository {
+
+}
