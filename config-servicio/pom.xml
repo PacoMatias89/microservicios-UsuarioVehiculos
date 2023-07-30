@@ -8,10 +8,10 @@
 		<version>2.5.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.config.servicio</groupId>
-	<artifactId>config-servicio</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>config-servicio</name>
+	<groupId>com.config.service</groupId>
+	<artifactId>config-service</artifactId>
+	<version>1.0</version>
+	<name>config-service</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
