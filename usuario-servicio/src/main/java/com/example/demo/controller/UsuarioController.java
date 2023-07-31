@@ -99,7 +99,7 @@ public class UsuarioController {
 		return ResponseEntity.ok(nuevoCoche);
 	}
 
-	@CircuitBreaker(name = "motosCB", fallbackMethod = "fallBacKSaveMoto")
+	@CircuitBreaker(name = "motosCB", fallbackMethod = "fallBacKSaveMotos")
 	@PostMapping("/moto/{usuarioId}")
 	public ResponseEntity<Moto> guardarMoto(@PathVariable("usuarioId") long usuarioId, @RequestBody Moto moto) {
 		Moto nuevoMoto = usuarioService.guardarMoto(usuarioId, moto);
@@ -117,22 +117,22 @@ public class UsuarioController {
 		return ResponseEntity.ok(resultado);
 	}
 
-	private ResponseEntity<List<Coche>> fallBacKGetCoches(@PathVariable("usuarioId") long id,
+	private ResponseEntity<List<Coche>> fallBacKGetCoches(@PathVariable("usuarioId") Long id,
 			RuntimeException exception) {
 		return new ResponseEntity("El usuario:" + id + " tiene los coches en el taller", HttpStatus.OK);
 	}
 
-	private ResponseEntity<List<Coche>> fallBacKSaveCoches(@PathVariable("usuarioId") long id, @RequestBody Coche coche,
+	private ResponseEntity<List<Coche>> fallBacKSaveCoches(@PathVariable("usuarioId") Long id, @RequestBody Coche coche,
 			RuntimeException exception) {
 		return new ResponseEntity("El usuario:" + id + " no puede comprar coches", HttpStatus.OK);
 	}
 
-	private ResponseEntity<List<Moto>> fallBacKGetMotos(@PathVariable("usuarioId") long id,
+	private ResponseEntity<List<Moto>> fallBacKGetMotos(@PathVariable("usuarioId") Long id,
 			RuntimeException exception) {
 		return new ResponseEntity("El usuario:" + id + " tiene los motos en el taller", HttpStatus.OK);
 	}
 
-	private ResponseEntity<List<Moto>> fallBacKSaveMotos(@PathVariable("usuarioId") long id, @RequestBody Moto moto,
+	private ResponseEntity<List<Moto>> fallBacKSaveMotos(@PathVariable("usuarioId") Long id, @RequestBody Moto moto,
 			RuntimeException exception) {
 		return new ResponseEntity("El usuario:" + id + " no puede comprar motos", HttpStatus.OK);
 	}
