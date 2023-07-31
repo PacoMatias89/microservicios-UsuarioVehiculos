@@ -46,12 +46,12 @@ public class UsuarioService {
 	// Obtenemos los coches y las motos por usuarios(Comunicando los microservicios
 	// de coches y motos)
 	public List<Coche> getCoches(long usuarioId) {
-		List<Coche> coches = restTemplate.getForObject("http://localhost:8082/coche/usuario/" + usuarioId, List.class);
+		List<Coche> coches = restTemplate.getForObject("http://coche-servicio/coche/usuario/" + usuarioId, List.class);
 		return coches;
 	}
 
 	public List<Moto> getMotos(long usuarioId) {
-		List<Moto> motos = restTemplate.getForObject("http://localhost:8083/moto/usuario/" + usuarioId, List.class);
+		List<Moto> motos = restTemplate.getForObject("http://moto-servicio/moto/usuario/" + usuarioId, List.class);
 		return motos;
 	}
 
