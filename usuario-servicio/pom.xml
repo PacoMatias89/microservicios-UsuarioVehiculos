@@ -83,6 +83,21 @@
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 
+		<!--
+		https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-sleuth-zipkin -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
+		</dependency>
+
+		<!--
+		https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-sleuth -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+			
+		</dependency>
+
 	</dependencies>
 
 	<build>

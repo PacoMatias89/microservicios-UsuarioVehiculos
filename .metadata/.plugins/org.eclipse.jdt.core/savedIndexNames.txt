@@ -62,7 +62,6 @@ INDEX VERSION 1.134+C:\Users\franc\Desktop\spring-boot\Proyecto\ControlVehiculos
 2967742338.index
 2307074402.index
 427142492.index
-2593105326.index
 3386811284.index
 2093572059.index
 2985412843.index
