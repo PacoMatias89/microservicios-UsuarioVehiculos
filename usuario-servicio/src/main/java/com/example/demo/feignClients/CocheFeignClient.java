@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.models.Coche;
 
-@FeignClient(name="coche-servicio", url="http://localhost:8082")
+@FeignClient(name="coche-servicio")
 @RequestMapping("/coche")
 public interface CocheFeignClient {
 	@PostMapping()
