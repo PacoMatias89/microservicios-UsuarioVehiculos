@@ -7107,3 +7107,45 @@ Binding(CTRL+SHIFT+C,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-31 10:33:47.338
+!MESSAGE Classpath changed for project: gateway-servicio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-31 10:33:47.339
+!MESSAGE Boot project ADDED: gateway-servicio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-31 10:33:50.904
+!MESSAGE Classpath changed for project: gateway-servicio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-31 10:33:51.901
+!MESSAGE Classpath changed for project: gateway-servicio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-31 10:33:55.142
+!MESSAGE Classpath changed for project: gateway-servicio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-31 10:35:44.830
+!MESSAGE Classpath changed for project: gateway-servicio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-31 10:35:45.071
+!MESSAGE Classpath changed for project: gateway-servicio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-31 10:35:48.221
+!MESSAGE Classpath changed for project: gateway-servicio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-31 10:35:48.945
+!MESSAGE Classpath changed for project: gateway-servicio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-31 10:35:51.316
+!MESSAGE Classpath changed for project: gateway-servicio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-31 10:36:10.041
+!MESSAGE Classpath changed for project: gateway-servicio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-31 10:36:10.593
+!MESSAGE Classpath changed for project: gateway-servicio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-31 10:36:11.293
+!MESSAGE Classpath changed for project: gateway-servicio
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-31 10:36:32.138
+!MESSAGE Classpath changed for project: gateway-servicio
